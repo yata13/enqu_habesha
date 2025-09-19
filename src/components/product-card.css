@@ -1,0 +1,20 @@
+.pcard {
+  position: relative;
+  display: grid;
+  gap: .5rem;
+  padding: .75rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
+  backdrop-filter: blur(6px);
+}
+.pcard:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+.pcard-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: .75rem; }
+.fav { position: absolute; top: .5rem; right: .5rem; background: white; border: none; border-radius: 999px; padding: .25rem .5rem; cursor: pointer; }
+.fav.active { background: #ffe6ea; }
+.pcard-body { display: grid; gap: .35rem; }
+.pcard-title { margin: 0; font-size: 1rem; }
+.pcard-price { margin: 0; font-weight: 700; }
+.pcard-size { padding: .4rem .5rem; border-radius: .5rem; }
+.pcard-add { padding: .6rem .9rem; border: none; border-radius: .7rem; cursor: pointer; }

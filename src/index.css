@@ -1,0 +1,335 @@
+/* ========== RESET & VARIABLES ========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --nav-h: 80px; --brand: orange; }
+
+html, body { width: 100%; min-height: 100%; overflow-x: hidden; font-family: sans-serif; }
+
+/* ========== LAYOUT SHELL ========== */
+.home { width: 100vw; display: block; }   /* no grid rows that cause white bands */
+
+/* ========== HEADER / NAV ========== */
+.header-bar{
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: transparent;       /* transparent over hero */
+  box-shadow: none; border: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo{ display: flex; align-items: center; gap: .75rem; }
+.logo-img{ width: 6rem; height: 6rem; margin-top: .5rem; object-fit: contain; }
+
+nav ul{ list-style: none; display: flex; gap: 1.5rem; }
+nav a{
+  position: relative; text-decoration: none;
+  color: #fff; font-weight: 700; padding-bottom: 5px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.6);
+}
+nav a::after{
+  content:""; position:absolute; left:0; bottom:0;
+  width:0%; height:2px; background: var(--brand);
+  transition: width .3s ease;
+}
+nav a:hover::after{ width:100%; }
+
+.nav-button{
+  display:inline-flex; align-items:center; gap:.5rem;
+  width:auto; height:3rem; padding: 0 .9rem;
+  border:none; border-radius:.5rem; background: var(--brand); color:#fff; font-size:1.1rem;
+}
+.online-shop-img{ width:1.5rem; height:1.5rem; }
+
+.header-icons{ display:flex; align-items:center; gap:1rem; }
+.cart-wrapper{ position:relative; cursor:pointer; }
+.cart-count{
+  position:absolute; top:-.4rem; right:-.6rem;
+  background: var(--brand); color:#fff; border-radius:50%; padding:.1rem .4rem; font-size:.75rem; font-weight:700;
+}
+
+/* header becomes solid after scroll (optional, add JS that toggles .scrolled) */
+.header-bar.scrolled{
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+.header-bar.scrolled nav a{ color:#222 !important; text-shadow:none; }
+
+/* hide brand text on phone */
+@media (max-width:640px){ .brand-text{ display:none !important; } }
+
+/* ========== HERO ========== */
+.body{ display:flex; justify-content:center; }
+.hero{
+  position:relative; display:flex; justify-content:center; align-items:center; text-align:center;
+  width:100vw; min-height:100vh; padding-top: var(--nav-h);
+  color:#fff; background-image:url('gold-1.jfif'); background-size:cover; background-position: top center; overflow:hidden;
+  font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+.hero::before{
+  content:""; position:absolute; inset:0; background:rgba(0,0,0,.4); z-index:0;
+}
+.hero-content{ position:relative; z-index:1; margin:0; }
+.hero-content h1{ font-size:2.5rem; margin-bottom:1rem; }
+.hero-content p{ font-size:1.25rem; margin-bottom:1.5rem; }
+span{ padding:5px 8px; border-radius:10px; color:#fff; background: var(--brand);}
+.btn{ background:#333; color:#fff; padding:.75rem 1.5rem; text-decoration:none; border-radius:.5rem; }
+
+/* ========== SLIDER (PROMO STRIP) ========== */
+.slideCard.slider{
+  position:relative; width:100%; background: linear-gradient(to right, rgb(246,180,0), rgb(238,165,8));
+  overflow:hidden; margin-bottom:5rem; padding: .75rem 0;
+}
+.slider-container{
+  display:flex; align-items:stretch; animation: slide 40s linear infinite; will-change: transform;
+}
+@keyframes slide{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }  /* with duplicated items */
+
+.img-card{
+  flex: 0 0 12rem; margin: 1rem .75rem; display:flex; flex-direction:column; align-items:center;
+}
+.img-wrap{
+  width:100%; aspect-ratio: 3/4; border-radius:2rem 2rem 0 0; overflow:hidden; background:#00000010;
+}
+.img-slid{ width:100%; height:100%; object-fit:cover; display:block; }
+/*
+ * Star and price rows for the slider cards.  Instead of using a
+ * dedicated .star-div, we now define a .card-info block that
+ * contains both the price row and the sizes row.  These styles
+ * specifically target the card information section of each slide.
+ */
+.card-info{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.4rem;
+  margin-top:.5rem;
+}
+/* Price row displays the star icon next to the price */
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:1rem;
+  font-weight:600;
+  color:#000;
+}
+/* Star icon within the price row */
+.star-icon{
+  width:1.2rem;
+  height:1.2rem;
+  text-align:center;
+}
+/* Price text styling */
+.price{
+  font-size:1rem;
+  font-weight:bold;
+}
+/* Sizes row shows available sizes under the price */
+.sizes-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.25rem;
+  font-size:.75rem;
+}
+/* Label preceding the size list */
+.size-label{
+  font-weight:600;
+  margin-right:.25rem;
+  color:#444;
+}
+/* Individual size item styling */
+.size-item{
+  padding:.1rem .3rem;
+  border-radius:.25rem;
+  background:#fff8e5;
+  color:#333;
+  border:1px solid #f5d980;
+  font-size:.75rem;
+}
+.slider-title{
+  width: 10rem;
+  font-size: 1rem; padding:.5rem; text-align:center; color:#302e2e;
+  background: linear-gradient(to right, rgb(255,187,0), rgb(214,144,13));
+  border-radius:0 0 1rem 1rem; 
+  margin-top:.5rem;
+}
+
+/* full-bleed on phones (no right white gap) */
+@media (max-width:640px){
+  .slideCard.slider{ width:100vw; margin-left: calc(50% - 50vw); }
+  .img-card{ flex: 0 0 72vw; }               /* ~1.4 cards visible */
+  .slider-title{ font-size:.75rem; }
+}
+
+/* ========== PRODUCT GRID ========== */
+.product-section{ padding: 2rem 1rem; }
+.product-grid{
+  display:grid; gap:1.5rem; width:100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.product-card{
+  background:#fff; border-radius:.75rem; overflow:hidden;
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+  transition: transform .3s ease, box-shadow .3s ease;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.product-card:hover{ transform: translateY(-5px); box-shadow:0 6px 12px rgba(0,0,0,.15); }
+
+.product-image-wrapper{ position:relative; width:100%; aspect-ratio:1/1; } /* square */
+.product-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition: transform .3s ease; }
+.product-card:hover .product-img{ transform: scale(1.05); }
+
+.product-card-body{ padding:.75rem; display:flex; flex-direction:column; gap:.5rem; }
+.product-name{ font-size:1rem; font-weight:600; color:#333; }
+.product-price{ font-size:.9rem; color:#666; }
+.product-actions{ display:flex; justify-content:flex-end; gap:.5rem; }
+.action-icon{ width:1.2rem; height:1.2rem; cursor:pointer; transition: transform .2s ease; }
+.action-icon:hover{ transform: scale(1.15); }
+.action-icon.active{ filter: hue-rotate(90deg); }
+
+/* ========== TYPE / CATEGORIES (your boxes) ========== */
+.type-contener-jsx{ display:grid; grid-template-columns: 1fr 3fr 3fr; gap:1rem; }
+.type-header{ text-align:center; background-color: #ffaf01; margin-bottom: 2rem; color: white; width: 20rem; padding: 0.4rem; border-radius: 5px;}
+.div-img{ width:100%; height:100%; object-fit:cover; border-radius:inherit; }
+
+.dav-contener-1{ grid-column:1/2; display:grid; justify-content:center; margin:1rem; }
+.davs-1, .davs-2, .davs-3, .davs-4{
+  position:relative; width:20rem; height:7rem; background:#020000; border-radius:2rem; overflow:hidden;
+}
+.davs-1::before, .davs-2::before, .davs-3::before, .davs-4::before{
+  content:""; position:absolute; inset:0; background:inherit; filter: blur(5px); opacity:0; transition: opacity .3s ease; z-index:1; border-radius:inherit;
+}
+.davs-1:hover::before, .davs-2:hover::before, .davs-3:hover::before, .davs-4:hover::before{ opacity:.5; }
+.hover-text{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  z-index:2; opacity:0; transition:opacity .3s ease; color:#fff; font-size:1.2rem; font-weight:700; text-align:center; pointer-events:none;
+}
+.davs-1:hover .hover-text, .davs-2:hover .hover-text, .davs-3:hover .hover-text, .davs-4:hover .hover-text{ opacity:1; }
+.skipContener{ width:100%; display:flex; justify-content:center; gap:1rem; margin:5rem; }
+
+/* ========== CONTACT SECTION ========== */
+/* Section wrapper for the contact/order form.  Provides spacing and a
+   contrasting background to differentiate it from the product grid. */
+.contact-section{
+  padding: 3rem 1rem;
+  background: #f8f8f8;
+}
+/* Header within the contact section */
+.contact-header{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:1.5rem;
+  color:#333;
+}
+
+/* ========== SMALL SCREENS TWEAKS ========== */
+@media (max-width:640px){
+  .logo-img{ width:4rem; height:4rem; margin-top:0; }
+  nav ul{ gap: 1rem; }
+  .nav-button{ height: 2.6rem; font-size: 1rem; }
+  .hero-content h1{ font-size: 2rem; }
+  .hero-content p{ font-size: 1.05rem; }
+}
+
+
+/* == */
+
+/* === Email submit bar ===
+ * This component was originally a sticky bar fixed to the bottom of the
+ * viewport.  To convert it into a normal section element that appears
+ * within the flow of the page, remove position: fixed and bottom
+ * positioning.  The form still uses a grid layout so the thumbnail,
+ * input fields and button align nicely on larger screens.  On
+ * smaller screens the columns will stack. */
+.email-bar{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: .75rem;
+  padding: .85rem 1rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: .5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.pick{ display:flex; align-items:center; gap:.6rem; min-width: 190px; }
+.pick-thumb{
+  width: 44px; height: 44px; border-radius: .5rem; object-fit: cover;
+  background: #eee; display:block;
+}
+.pick-meta{ line-height: 1.05; }
+.pick-name{ font-size: .95rem; }
+.pick-id{ color:#666; }
+
+.pick-empty{
+  font-size: .95rem; color:#444; background: #fff3d4; border: 1px dashed #ffbf47;
+  padding: .35rem .5rem; border-radius: .4rem;
+}
+
+.email-input{
+  width: 100%;
+  height: 42px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .5rem;
+  padding: 0 .75rem;
+  font-size: .95rem;
+  outline: none;
+}
+.email-input:focus{ border-color: orange; box-shadow: 0 0 0 3px rgba(255,166,0,.18); }
+
+.email-submit{
+  height: 42px; min-width: 110px;
+  border: none; border-radius: .5rem;
+  background: orange; color: #fff; font-weight: 700; font-size: .95rem;
+  cursor: pointer;
+}
+.email-submit:disabled{
+  opacity: .5; cursor: not-allowed;
+}
+
+/* Message wrapper spans all columns so the textarea appears below the first row */
+.message-wrapper{
+  grid-column: 1 / -1;
+}
+
+/* Textarea styling for the optional message */
+.email-message{
+  width: 100%;
+  min-height: 60px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .5rem;
+  padding: .5rem .75rem;
+  font-size: .95rem;
+  resize: vertical;
+  outline: none;
+}
+.email-message:focus{
+  border-color: orange;
+  box-shadow: 0 0 0 3px rgba(255,166,0,.18);
+}
+
+/* Status messages following form submission */
+.form-status{
+  grid-column: 1 / -1;
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: #333;
+}
+
+/* mobile layout: stack nicely */
+@media (max-width: 640px){
+  .email-bar{
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    padding-bottom: .9rem;     /* a bit more tap space */
+  }
+  .pick{ min-width: 0; }
+}

@@ -1,0 +1,7 @@
+.gallery { display: grid; gap: .75rem; }
+.gallery-main { position: relative; }
+.gallery-hero { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 1rem; }
+.gallery-thumbs { display: grid; grid-auto-flow: column; gap: .5rem; overflow-x: auto; padding-bottom: .25rem; }
+.thumb { border: 2px solid transparent; border-radius: .5rem; padding: 0; background: none; cursor: pointer; }
+.thumb.active { border-color: black; }
+.thumb img { width: 64px; height: 64px; object-fit: cover; border-radius: .4rem; }

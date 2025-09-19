@@ -1,0 +1,13 @@
+.cart-widget { position: fixed; right: 1rem; bottom: 1rem; z-index: 50; }
+.cart-widget > details > summary { list-style: none; cursor: pointer; background: white; border-radius: 999px; padding: .5rem .9rem; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+.cart-panel { margin-top: .5rem; width: min(92vw, 420px); max-height: 60vh; overflow: auto; background: white; border-radius: 1rem; padding: .75rem; box-shadow: 0 10px 30px rgba(0,0,0,.2); display: grid; gap: .5rem; }
+.row { display: grid; grid-template-columns: 64px 1fr auto auto; gap: .5rem; align-items: center; }
+.row img { width: 64px; height: 64px; object-fit: cover; border-radius: .4rem; }
+.row .meta { display: grid; gap: .1rem; }
+.row .muted { font-size: .85rem; color: #666; }
+.row .qty { display: inline-flex; align-items: center; gap: .35rem; }
+.row .qty button { width: 28px; height: 28px; }
+.remove { border: none; background: none; font-size: 1.2rem; cursor: pointer; }
+.total { display: flex; justify-content: space-between; align-items: center; padding-top: .5rem; border-top: 1px solid #eee; }
+.checkout { padding: .6rem .9rem; border: none; border-radius: .7rem; background: black; color: white; cursor: pointer; }
+.empty { color: #666; text-align: center; padding: .75rem 0; }
