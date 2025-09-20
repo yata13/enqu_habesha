@@ -23,10 +23,10 @@ const App = () => {
 
   // Dummy array for the slider images; could be replaced with product images
   const sliderImages = [
-    'gold-1.jfif',
-    'gold-2.jfif',
-    'gold-3.jfif',
-    'gold-4.jfif',
+    'gold-1.jpg',
+    'gold-2.png',
+    'gold-3.jpg',
+    'gold-4.jpg',
     'gold-5.jpg',
     'gold-6.jpg'
   ];
