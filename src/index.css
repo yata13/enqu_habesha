@@ -71,7 +71,7 @@ nav a:hover::after{ width:100%; }
 .hero-content{ position:relative; z-index:1; margin:0; }
 .hero-content h1{ font-size:2.5rem; margin-bottom:1rem; }
 .hero-content p{ font-size:1.25rem; margin-bottom:1.5rem; }
-span{ padding:5px 8px; border-radius:10px; color:#fff; background: var(--brand);}
+span{ padding:3px 8px; border-radius:10px; color:#fff; background: var(--brand);}
 .btn{ background:#333; color:#fff; padding:.75rem 1.5rem; text-decoration:none; border-radius:.5rem; }
 
 /* ========== SLIDER (PROMO STRIP) ========== */
