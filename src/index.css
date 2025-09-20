@@ -62,7 +62,7 @@ nav a:hover::after{ width:100%; }
 .hero{
   position:relative; display:flex; justify-content:center; align-items:center; text-align:center;
   width:100vw; min-height:100vh; padding-top: var(--nav-h);
-  color:#fff; background-image:url('/gold-1.jpg'); background-size:cover; background-position: top center; overflow:hidden;
+  color:#fff; background-image:url('gold-1.jpg'); background-size:cover; background-position: top center; overflow:hidden;
   font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
 }
 .hero::before{
