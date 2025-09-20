@@ -61,7 +61,7 @@ const App = () => {
             </ul>
           </nav>
           <div className="header-icons cart-wrapper" onClick={() => setShowCart((prev) => !prev)}>
-            <button className="nav-button" >Shop Now<img className="online-shop-img" src="online-shopping.png" alt="shop"/></button>
+            <button className="nav-button" >Shop <img className="online-shop-img" src="online-shopping.png" alt="shop"/></button>
               {cartCount > 0 && <span className="cart-count">{cartCount}</span>}            
           </div>
           <CartDropdown isOpen={showCart} onClose={() => setShowCart(false)} />
