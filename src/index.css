@@ -80,7 +80,7 @@ span{ padding:3px 8px; border-radius:10px; color:#fff; background: var(--brand);
   overflow:hidden; margin-bottom:5rem; padding: .75rem 0;
 }
 .slider-container{
-  display:flex; align-items:stretch; animation: slide 40s linear infinite; will-change: transform;
+  display:flex; align-items:stretch; animation: slide 10s linear infinite; will-change: transform;
 }
 @keyframes slide{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }  /* with duplicated items */
 
