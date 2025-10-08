@@ -1,0 +1,97 @@
+.img-card {
+  flex: 0 0 12rem;
+  margin: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.img-slid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.star-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+
+
+
+/* On small screens show fewer cards and smaller titles */
+@media (max-width: 640px) {
+  .img-card {
+    flex: 0 0 72vw;
+  }
+
+  .slider-title {
+    font-size: 0.75rem;
+  }
+}
+
+
+.slide-styke-img{
+  width: auto;
+  height: 5vh;
+}
+
+/* Slider header styling */
+.slider-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.slider-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* A decorative golden line beneath section titles.  Instead of using
+ * an external image this line uses a subtle gradient to mimic the
+ * patterned gold bar seen in the design mockups.  Feel free to adjust
+ * the colours or height for a different look. */
+.decor-line {
+  width: 240px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #f0c987, #f7e3b0, #f0c987);
+}

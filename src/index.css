@@ -1,0 +1,38 @@
+/*
+ * Global reset and base variables
+ *
+ * This stylesheet defines simple reset rules and CSS custom properties
+ * that apply across the entire application.  Component‑specific
+ * styles have been moved into their own files to keep concerns
+ * separated and the global stylesheet lean.
+ */
+
+ /* Bring in FontAwesome icons so that <i className="fas fa-heart"> etc. work
+   without having to manage image assets separately. */
+
+/* Reset common element margins, paddings and box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS custom properties for shared values */
+:root {
+  /* Height of the fixed navigation bar; referenced in hero padding */
+  --nav-h: 80px;
+  /* Primary accent colour used throughout the UI */
+  --brand:  linear-gradient(135deg,#ffb24d,#ff8e4d);
+;
+}
+
+
+
+/* Base styles for html and body */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}

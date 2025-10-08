@@ -1,0 +1,112 @@
+.footer-container {
+  position: relative;
+  /* create some breathing space above the footer */
+  padding: 5rem 1rem 0;
+  background: transparent;
+}
+
+/* Gold bar sits BEHIND the card and spans full width */
+.footer-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6rem;
+  background: linear-gradient(to right, #f5d48b, #f7e3b0, #f5d48b);
+  display: flex;
+  align-items: flex-end;          /* copyright text aligned near bottom */
+  justify-content: center;
+  padding-bottom: .6rem;          /* lift the text a bit */
+}
+
+/* The white glass card that overlaps the gold bar */
+.footer-card {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 1.25rem;
+  padding: 2rem 2rem 1.75rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  z-index: 2;
+
+  /* 👇 this is the key — lift the white card above the gold bar */
+  transform: translateY(-2rem);
+  margin-bottom: -1.7rem;
+}
+
+
+.footer-title {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.footer-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1fr; /* logo/intro a bit wider */
+  gap: 2rem;
+}
+
+.footer-logo .logo-icon {
+  font-size: 1.6rem;
+  margin-bottom: .4rem;
+}
+
+.footer-text {
+  font-size: .9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.footer-heading {
+  font-weight: 600;
+  margin-bottom: .6rem;
+  color: #333;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-grid li {
+  font-size: .92rem;
+  margin-bottom: .35rem;
+  color: #444;
+  cursor: pointer;
+}
+.footer-grid li:hover { text-decoration: underline; }
+
+.footer-input-wrapper { display: flex; margin-bottom: .7rem; }
+.footer-input-wrapper input {
+  flex: 1;
+  padding: .45rem .65rem;
+  border: 1px solid #d9d9d9;
+  border-radius: .35rem;
+  font-size: .9rem;
+  background: #fff;
+}
+
+.footer-socials { display: flex; gap: .55rem; }
+.footer-socials i { font-size: 1rem; color: #444; cursor: pointer; }
+.footer-socials i:hover { color: #111; }
+
+/* The copyright text that sits on the gold bar */
+.footer-bottom {
+  font-size: .8rem;
+  color: #6b5b40;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}

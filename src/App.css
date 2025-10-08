@@ -1,0 +1,320 @@
+/*
+ * App‑level styles
+ *
+ * This stylesheet contains layout and visual rules for the top‑level
+ * sections of the application, such as the navigation bar, hero
+ * section, promotional slider container, product listing header and
+ * the contact/order section.  Splitting these styles into their own
+ * file keeps the global index.css simple while allowing App.jsx to
+ * import only what it needs.
+ */
+
+
+/* Shell layout */
+.home {
+  width: 100vw;
+  height: 70vh;
+  display: block;
+}
+
+/* Header / navigation bar */
+.header-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.brand-text{
+  width: auto;
+  height: 1.3rem;
+  padding: 0 0.9rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--brand);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  /* When rendering as a font icon, adjust the size via font-size
+     instead of width/height.  If a real image is used this rule
+     still ensures consistent sizing. */
+  width: 6rem;
+  height: 6rem;
+  margin-top: 0.5rem;
+  object-fit: contain;
+  font-size: 3rem;
+  color: #f5d48b;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 700;
+  padding-bottom: 5px;
+  text-shadow: 0 1px 3px var(--brand);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--brand);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+  height: 3rem;
+  padding: 0 0.9rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--brand);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.online-shop-img {
+  width: 2rem;
+  height: 2rem;
+}
+.online-shop-icon {
+  font-size: 1.5rem;
+}
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.6rem;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Header becomes solid when scrolled (optional) */
+.header-bar.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.header-bar.scrolled nav a {
+  color: #222 !important;
+  text-shadow: none;
+}
+
+/* Hide brand text on smaller screens */
+@media (max-width: 640px) {
+  .brand-text {
+    display: none !important;
+  }
+}
+
+/* Body & hero section */
+.body {
+  display: grid;
+  justify-content: center;
+  height: 50vh;
+  margin: 10rem;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 60vh;
+  min-height: 10vh;
+  padding-top: var(--nav-h);
+  color: #fff;
+    background-image: url('/ro.png');
+  /* Use a soft gradient background instead of a missing image */
+  background-size: cover;
+  background-position: top center;
+  overflow: hidden;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1em;
+  margin-bottom: 2rem;
+  margin-left: 3rem;
+}
+
+.app-h1 {
+  margin: 1rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--brand);
+}
+
+.btn {
+  background: var(--brand);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+/* Slider container on the home page */
+.slideCard.slider {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  background: linear-gradient(to right, rgb(232, 232, 232), rgb(255, 255, 255));
+  overflow: hidden;
+  margin-bottom: 5rem;
+  padding: 0.75rem 0;
+}
+
+.slider-container {
+  display: flex;
+  align-items: stretch;
+  animation: slide 10s linear infinite;
+  will-change: transform;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Adjust the slider on small screens to prevent extra margins */
+@media (max-width: 640px) {
+  .slideCard.slider {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+}
+
+/* Product listing header */
+.product-section {
+  padding: 2rem 1rem;
+}
+
+.type-header {
+  text-align: center;
+  background-color: #ffaf01;
+  margin-bottom: 2rem;
+  color: white;
+  width: 20rem;
+  padding: 0.4rem;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contact & order section */
+.contact-section {
+  padding: 3rem 1rem;
+  background: #f8f8f8;
+}
+
+.contact-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Small screen tweaks for header and hero text */
+@media (max-width: 640px) {
+  .logo-img {
+    width: 4rem;
+    height: 4rem;
+    margin-top: 0;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  .nav-button {
+    height: 2.6rem;
+    font-size: 1rem;
+      background: linear-gradient(135deg,#ffb24d,#ff8e4d);
+
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.05rem;
+  }
+}
